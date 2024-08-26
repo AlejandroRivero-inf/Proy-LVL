@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Proyecto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Crear Proyecto</h2>
+    <form id="crearProyectoForm">
+        <div class="form-group">
+            <label for="codigo_proyecto">Código del Proyecto</label>
+            <input type="text" class="form-control" id="codigo_proyecto" name="codigo_proyecto" required>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre del Proyecto</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="estado">Estado del Proyecto</label>
+            <select class="form-control" id="estado" name="estado" required>
+                <option value="PLANIFICACION">PLANIFICACIÓN</option>
+                <option value="EN CURSO">EN CURSO</option>
+                <option value="EN REVISION">EN REVISIÓN</option>
+                <option value="FINALIZADO">FINALIZADO</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="fecha_inicio">Fecha de Inicio</label>
+                <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="fecha_fin">Fecha de Fin</label>
+                <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="btnCrear">Crear Proyecto</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/js/newproject.js"></script>
+</body>
+</html>

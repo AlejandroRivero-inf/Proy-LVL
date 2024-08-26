@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USUARIO</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Usuario</h1>
+    <div class="alert alert-info mt-3">
+         <span id="userName">Loading...</span>
+         <span id="userApellido">Loading...</span><br>
+         <span id="userPosition">Loading...</span>
+    </div>
+
+
+    <div class="mt-3">
+        <button class="btn btn-warning" id="btnEditar">Editar</button>
+    </div>
+
+
+    <h2 class="mt-4">Tableros</h2>
+
+
+    <div class="input-group mt-3">
+        <input type="text" id="projectSearch" class="form-control" placeholder="Buscar proyecto">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" id="btnBusqueda" type="button">Búsqueda avanzada</button>
+            <button class="btn btn-success" id="btnNewProject" type="button">+</button>
+        </div>
+    </div>
+</div>
+
+<script src="/js/home.js"></script>
+</body>
+</html>
+
+
+
