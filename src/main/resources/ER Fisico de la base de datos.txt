@@ -1,0 +1,57 @@
+
+CREATE TABLE IF NOT EXISTS roles (
+    id BIGSERIAL PRIMARY KEY,
+    nombre VARCHAR(20) UNIQUE NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS empresas (
+    id BIGSERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    sector VARCHAR(50),
+    pais VARCHAR(50)
+);
+
+
+CREATE TABLE IF NOT EXISTS cargos (
+    id BIGSERIAL PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    nivel VARCHAR(20)
+);
+
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id BIGSERIAL PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
+    correo_electronico VARCHAR(100) UNIQUE NOT NULL,
+    contrasena VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20),
+    rol_id BIGINT NOT NULL,
+    empresa_id BIGINT,
+    cargo_id BIGINT,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_usuario_rol FOREIGN KEY (rol_id) REFERENCES roles(id),
+    CONSTRAINT fk_usuario_empresa FOREIGN KEY (empresa_id) REFERENCES empresas(id),
+    CONSTRAINT fk_usuario_cargo FOREIGN KEY (cargo_id) REFERENCES cargos(id)
+);
+
+
+CREATE TABLE IF NOT EXISTS proyectos (
+    id BIGSERIAL PRIMARY KEY,
+    codigo_proyecto VARCHAR(20) UNIQUE NOT NULL,
+    nombre_proyecto VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    icono_proyecto VARCHAR(10) DEFAULT 'asd',
+    fecha_inicio DATE,
+    fecha_finalizacion DATE,
+    estado VARCHAR(20) NOT NULL DEFAULT 'ACTIVO',
+    usuario_creador_id BIGINT NOT NULL,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_proyecto_usuario 
+        FOREIGN KEY (usuario_creador_id) 
+        REFERENCES usuarios(id) 
+        ON DELETE CASCADE
+);
